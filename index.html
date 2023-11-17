@@ -13,6 +13,10 @@
         background-position: center top;
         background-repeat: no-repeat;
         height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
 
       .container {
@@ -39,6 +43,10 @@
       img {
         max-height: 250px;
       }
+
+      #reais, #dolar, button {
+        margin: 10px 0;
+      }
     </style>
   </head>
   <body>
@@ -48,10 +56,12 @@
       </h1>
       <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-aluraflix.svg" class="page-logo" alt="">
       <br>
+      <label for="reais">Valor em Reais</label><br>
       <textarea id="reais" rows="1" cols="20" placeholder="Digite o valor em reais"></textarea>
       <br>
       <button onclick="converter()">Converter</button>
       <br>
+      <label for="dolar">Valor em Dólar</label><br>
       <input id="dolar" type="text" readonly>
     </div>
     <script>
