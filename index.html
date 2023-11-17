@@ -58,18 +58,27 @@
       <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-aluraflix.svg" class="page-logo" alt="">
       <br>
       <label for="reais">Valor em Dólar</label><br>
-      <textarea id="reais" rows="1" cols="20" placeholder="Digite o valor em reais"></textarea>
+      <textarea id="dolar" rows="1" cols="20" placeholder="Digite o valor em dólar"></textarea>
       <br>
       <button onclick="converter()">Converter</button>
       <br>
-      <label for="dolar">Valor em Reais</label><br>
+      <label for="reais">Valor em Reais</label><br>
       <input id="dolar" type="text" readonly>
     </div>
     <script>
-      function converter() {
-        var reais = document.getElementById("reais").value;
-        var dolar = reais * 5.32;
-        document.getElementById("dolar").value = dolar.toFixed(2);
+      async function converter() {
+        try {
+          const response = await fetch('https://v6.exchangeratesapi.io/latest?base=BRL&symbols=USD');
+          const data = await response.json();
+          const cotacaoDolar = data.rates.USD;
+          
+          var reais = document.getElementById("reais").value;
+          var dolar = reais * cotacaoDolar;
+          
+          document.getElementById("dolar").value = dolar.toFixed(2);
+        } catch (error) {
+          console.error('Erro ao obter a cotação do dólar:', error);
+        }
       }
     </script>
   </body>
