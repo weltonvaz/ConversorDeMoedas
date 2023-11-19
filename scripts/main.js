@@ -14,7 +14,7 @@ async function converter() {
             throw new Error('Por favor, insira um valor válido em dólar.');
         }
 
-        var valorEmReais = valorEmDolar * cotacaoDolar;
+        var valorEmReais = valorEmDolar / cotacaoDolar;  // Corrigido para divisão
 
         document.getElementById("reaisOutput").value = valorEmReais.toFixed(2);
     } catch (error) {
