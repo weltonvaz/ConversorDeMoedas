@@ -1,20 +1,20 @@
-async function getCotacaoDolar() {
-    const response = await fetch('https://open.er-api.com/v6/latest/USD');
-    const data = await response.json();
-    return data.rates.USD;
-}
-
 async function converter() {
     try {
-        var valorEmDolar = parseFloat(document.getElementById("dolarInput").value);
+        const response = await fetch('https://open.er-api.com/v6/latest/USD');
+        if (!response.ok) {
+            throw new Error('Erro ao obter a cotação do dólar. Verifique a conexão ou tente novamente mais tarde.');
+        }
 
+        const data = await response.json();
+        const cotacaoDolar = data.rates.BRL;  // Corrigido para BRL
+
+        var valorEmDolar = parseFloat(document.getElementById("dolarInput").value);
+        
         if (isNaN(valorEmDolar)) {
             throw new Error('Por favor, insira um valor válido em dólar.');
         }
 
-        var cotacaoDolar = await getCotacaoDolar();  // Agora usamos await corretamente
-
-        var valorEmReais = valorEmDolar * cotacaoDolar;
+        var valorEmReais = valorEmDolar * cotacaoDolar;  // Corrigido para multiplicação
 
         document.getElementById("reaisOutput").value = valorEmReais.toFixed(2);
     } catch (error) {
