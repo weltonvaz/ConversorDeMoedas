@@ -1,75 +1,19 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Conversor de moedas</title>
-    <style>
-      body {
-        font-family: "Roboto Mono", monospace;
-        text-align: center;
-        background-image: url("https://caelum-online-public.s3.amazonaws.com/assets-imersaodev/Background.png");
-        background-color: #000000;
-        background-size: cover;
-        background-position: center top;
-        background-repeat: no-repeat;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .container {
-        text-align: center;
-        padding: 20px;
-      }
-
-      .page-title {
-        color: #ffffff;
-        margin: 0 0 5px;
-      }
-
-      .page-logo {
-        width: 200px;
-      }
-
-      .alura-logo {
-        width: 40px;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-      }
-
-      img {
-        max-height: 250px;
-      }
-
-      #reais, #dolar, button {
-        margin: 10px 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="page-title">
-        Conversor de moedas
-      </h1>
-      <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-aluraflix.svg" class="page-logo" alt="">
-      <br>
-      <label for="reais">Valor em Reais</label><br>
-      <textarea id="reais" rows="1" cols="20" placeholder="Digite o valor em reais"></textarea>
-      <br>
-      <button onclick="converter()">Converter</button>
-      <br>
-      <label for="dolar">Valor em Dólar</label><br>
-      <input id="dolar" type="text" readonly>
-    </div>
-    <script>
-      function converter() {
-        var reais = document.getElementById("reais").value;
-        var dolar = reais * 5.32;
-        document.getElementById("dolar").value = dolar.toFixed(2);
-      }
-    </script>
-  </body>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplo de HTML</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Meu primeiro exemplo de HTML</h1>
+    <p>Este é um parágrafo simples.</p>
+    <a href="https://alura.com.br/" target="_blank">
+      <img src="https://www.alura.com.br/assets/img/home/alura-logo.svg" alt="" class="alura-logo">
+      <img src="https://caelum-online-public.s3.amazonaws.com/assets-imersaodev/Convers%C3%A3o-1.png">
+    </a>
+  </div>
+  <script src="script/main.js"></script>
+</body>
 </html>
